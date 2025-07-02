@@ -1,0 +1,7 @@
+ext {
+    versions = [
+            mapstruct: '1.6.3',
+            swagger  : '2.2.34',
+            validator: '8.0.0.Final'
+    ]
+}

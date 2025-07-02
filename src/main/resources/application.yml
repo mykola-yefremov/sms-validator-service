@@ -1,0 +1,60 @@
+dbHost: localhost
+dbPort: 5433
+dbName: sms_validator_database
+dbUsername: sms_validator_user
+dbPassword: sms_validator_pass
+dbApplicationName: ${spring.application.name}
+
+spring:
+  application:
+    name: sms-validator-service
+    version: 0.0.1
+    description: validate incoming SMS messages with asynchronous processing
+  datasource:
+    username: ${dbUsername}
+    password: ${dbPassword}
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://${dbHost}:${dbPort}/${dbName}?ApplicationName=${dbApplicationName}
+    jpa:
+      hibernate:
+        ddl-auto: validate
+      show-sql: true
+      properties:
+        hibernate:
+          show-sql: true
+          format-sql: true
+          dialect: org.hibernate.dialect.PostgreSQLDialect
+    kafka:
+      bootstrap-servers: localhost:9092
+      partitions: 6
+      topics:
+        valid-sms: valid-sms-topic
+        invalid-sms: invalid-sms-topic
+        spam-sms: spam-sms-topic
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+  health:
+    diskspace:
+      enabled: false
+  info:
+    env:
+      enabled: true
+  server:
+    port: 9090
+
+info:
+  app:
+    name: ${spring.application.name}
+    version: ${spring.application.version}
+    description: ${spring.application.description}
+
+springdoc:
+  swagger-ui:
+    path: /sms-validator-service/api-docs
