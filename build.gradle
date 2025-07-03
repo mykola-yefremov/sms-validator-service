@@ -27,16 +27,16 @@ dependencies {
 	implementation 'org.springframework.kafka:spring-kafka'
 	testImplementation 'org.springframework.kafka:spring-kafka-test'
 
-	implementation 'org.mapstruct:mapstruct:${versions.mapstruct}'
-	annotationProcessor 'org.mapstruct:mapstruct-processor:${versions.mapstruct}'
+	implementation "org.mapstruct:mapstruct:${versions.mapstruct}"
+	annotationProcessor "org.mapstruct:mapstruct-processor:${versions.mapstruct}"
 
-	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:${versions.swagger}'
+	implementation "org.springdoc:springdoc-openapi-starter-webmvc-ui:${versions.swagger}"
 
-	implementation 'org.hibernate:hibernate-validator:${versions.validator}'
+	implementation "org.hibernate:hibernate-validator:${versions.validator}"
 
 	implementation 'org.flywaydb:flyway-database-postgresql'
 
-	implementation 'com.google.i18n:libphonenumber:8.13.27'
+	implementation 'com.googlecode.i18n:libphonenumber:8.13.26'
 	implementation 'org.apache.commons:commons-lang3:3.12.0'
 	implementation 'io.micrometer:micrometer-registry-prometheus'
 
